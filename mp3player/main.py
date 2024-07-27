@@ -27,7 +27,7 @@ def addSong(file_path):
             listbox.insert(tk.END,song_details)
             updateListboxHeight()
     except Exception as e:
-        print(f"Dosya açılmadı: {e}")
+        print(f"File didn't work: {e}")
 
 def goToSecondWindow(event):
     selected_song = listbox.get(listbox.curselection())
@@ -40,7 +40,7 @@ def pause():
 
 def play():
     song = listbox.get(tk.ACTIVE)
-    song_path = f'C:/Users/cfryl/OneDrive/Desktop/musicpython/{song}.mp3'
+    song_path = f'C:/Users/***/OneDrive/Desktop/musicpython/{song}.mp3'
     mixer.music.load(song_path)
     mixer.music.play()
     updateLabel(song)
@@ -58,7 +58,7 @@ def nextMusic():
             listbox.selection_set(next_music)
             listbox.activate(next_music)
             song = listbox.get(next_music)
-            to_next = f'C:/Users/cfryl/OneDrive/Desktop/musicpython/{song}.mp3'
+            to_next = f'C:/Users/***/OneDrive/Desktop/musicpython/{song}.mp3'
             mixer.music.load(to_next)
             mixer.music.play()
             updateLabel(song)
@@ -72,7 +72,7 @@ def previousMusic():
             listbox.selection_set(previous_music)
             listbox.activate(previous_music)
             song = listbox.get(previous_music)
-            to_previous = f'C:/Users/cfryl/OneDrive/Desktop/musicpython/{song}.mp3'
+            to_previous = f'C:/Users/***/OneDrive/Desktop/musicpython/{song}.mp3'
             mixer.music.load(to_previous)
             mixer.music.play()
             updateLabel(song)
@@ -81,7 +81,7 @@ def goToTheList(second_window):
     second_window.destroy()
     window.deiconify()
 
-def createSecondWindow(song, canvas=None):
+def createSecondWindow(song):
     global second_window, label
     second_window = tk.Toplevel(window)
     second_window.title("SellyPlayer")
